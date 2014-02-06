@@ -1,45 +1,359 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello, world!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-		<style>
-			body{
-				padding-top:50px;
-				text-align: center;
-				color: #333;
-				font-size: 16px;
-				line-height: 1.5;
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>plummy - turn code into fortune</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<!-- carousel css -->
+	<link href="../plummy/assets/css/bootstrapTheme.css" rel="stylesheet">
+    <link href="../plummy/assets/css/custom.css" rel="stylesheet">
+    <!-- Owl Carousel Assets -->
+    <link href="../plummy/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="../plummy/owl-carousel/owl.theme.css" rel="stylesheet">
+    <link href="../plummy/owl-carousel/owl.transitions.css" rel="stylesheet">
+    <link href="../plummy/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<!--skeleton Assets -->
+	<link rel="stylesheet" href="../plummy/assets/css/base.css">
+	<link rel="stylesheet" href="../plummy/assets/css/skeleton.css">
+	<link rel="stylesheet" href="../plummy/assets/css/layout.css">
+	
+	<!-- js script -->
+	<script src="../plummy/assets/js/bootstrap-collapse.js"></script>
+    <script src="../plummy/assets/js/bootstrap-transition.js"></script>
+    <script src="../plummy/assets/js/bootstrap-tab.js"></script>
+    <script src="../plummy/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../plummy/assets/js/application.js"></script>
+	<script src="../plummy/assets/js/jquery-1.9.1.min.js"></script> 
+    <script src="../plummy/owl-carousel/owl.carousel.js"></script>
+	
+	<!-- carousel 1 script -->
+	<script>
+    $(document).ready(function() {
+      var owl = $("#owl-demo");
+      owl.owlCarousel({
+		autoPlay : 3000,
+        navigation : false,
+        singleItem : true,
+		transitionStyle : "backSlide"
+      });
+
+      //Select Transtion Type
+      $("#transitionType").change(function(){
+        var newValue = $(this).val();
+        //TransitionTypes is owlCarousel inner method.
+        owl.data("owlCarousel").transitionTypes(newValue);
+        //After change type go to next slide
+        owl.trigger("owl.next");
+      });
+    });
+    </script>
+	
+	<script>
+    $(document).ready(function() {
+      $("#owl-demo2").owlCarousel({
+      //autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items : 3,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+      });
+    });
+	</script>
+
+	<script>
+    $(document).ready(function() {
+    $("#owl-demo3").owlCarousel({
+     
+    //autoPlay: 3000, //Set AutoPlay to 3 seconds
+     
+    items : 3,
+    itemsDesktop : [1199,3],
+    itemsDesktopSmall : [979,3]
+     
+    });
+     
+    });
+	</script>
+	
+	<style>
+    #owl-demo .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    </style>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	<!-- google maps-->
+	  <!--<style>
+      #map_canvas {
+        height: 200px;
+		width: 50%;
+		border-style:solid;
+		border-width:5px;
+		border-color:#424343;}
+    </style>-->
+	
+	<style>
+	#map_canvas {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+	border-style:solid;
+		border-width:3px;
+		border-color:#424343;}
+}
+	</style>
+	
+    
+
+
+	<!-- text area-->
+	<script>
+		$('textarea').each(function() {
+			$(this).data('default', this.value);
+		}).focusin(function() {
+			if ( this.value == $(this).data('default') ) {
+				this.value = '';    
 			}
-			.glyphicon{
-				font-size: 200px;
+		}).focusout(function() {
+			if ( this.value == '' ) {
+				this.value = $(this).data('default');    
 			}
-		</style>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-		<div class='container'>
-			<div class="row">
-				<div class="col-md-4 col-md-offset-4">
-					<span class="glyphicon glyphicon-bullhorn"></span>
-					<h1>Hello, world!</h1>
-					<div class='well'>
-						<p>We're still asleep. Wake us up!</p>
-						Drop up as an email for your whisper or inquiry.<br />
-						<a class='btn btn-success btn-block' href="mailto:hello@plummy.web.id?subject=Wake up dude!" target="_blank">
-							<strong>
-								hello [at] plummy.web.id
-							</strong>
-						</a>
-					</div>
-				</div>
+		});
+	</script>
+	
+	<!-- extra -->
+	<style>
+	.button:hover {
+  background: #148ba0;
+  text-decoration: none;
+}
+	</style>
+
+	
+	
+	
+	
+	
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+
+		<p></p>
+		<div class="sixteen columns">
+		<div class="five columns">
+			<img src="images/logox.png">
+		</div>
+		</div>
+
+		
+		<div class="eight columns">
+			<div class="seven columns">
+			<img src="images/laptop.gif">
 			</div>
-  </body>
+		</div>
+		<div class="eight columns">
+		<p></p>
+			<h2>Turn code into fortune</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet arcu at lectus laoreet congue. Donec blandit magna id lorem porta, sit amet vehicula felis lobortis. Fusce mauris orci, gravida in viverra non, rutrum at odio. Donec fermentum, diam quis commodo mattis, odio quam ultricies sapien, et semper mauris odio nec nulla.</p>
+		</div>
+		
+		
+		<div class="sixteen columns">
+		</br></br></br>
+		</div>
+		
+		<div class="sixteen columns">
+			<h1 style= "text-align:center;">Bring new things for the world</h1>
+			<h4 style= "text-align:center;"> We create something new and bring awesomeness for every people</h4>
+			</br>
+		</div>
+
+		<div class="eight columns">
+			<p></p><p></p><p></p><p></p>
+			<h3 > Sewakamar.com</h3>
+			<p>A portal that can make people can find their dream room and help the room owner to maximize their income.</p>
+		</div>
+		<div class="eight columns">
+		<img src="images/sewakamarx.png">
+		</div>
+		<div class="eight columns" >
+		<img src="images/beexxx.png">
+		</div>
+		<div class="eight columns">
+			<p></p><p></p><p></p><p></p>
+			<h3>BEE</h3>
+			<p>Music and mobile device are 2 things that become a part of daily life. How if people can colaborate to create a music just with their mobile device? yeah that is bee.</p>		
+		</div>
+		
+		<div class="sixteen columns">
+		</br></br></br>
+		</div>
+		
+		<div class="sixteen columns"> 
+		<h1 style= "text-align:center"> Help others to create fortune </h1>
+		<h4 style= "text-align:center">We offer a service to create website, information system, and mobile apps. We always do our best to deliver something that will be beautifully usefull. </h4>
+		</br>
+		</div>
+		
+
+        <div class="container">
+          <div class="sixteen columns">
+              <div id="owl-demo" class="owl-carousel">
+                <div class="item"><img src="../plummy/assets/img/fullimage4.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage5.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage6.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage7.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage1.jpg" ></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage2.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage3.jpg"></div>
+              </div>
+            </div>
+          </div>
+
+
+	
+	<div class="sixteen columns"> 
+		<h3 style= "text-align:center"> -Our Client- </h3>
+	</div>
+	
+
+        <div class="container">
+		<div class="two columns">&nbsp </div>
+          <div class="twelve columns">
+              <div id="owl-demo2" class="owl-carousel">
+                <div class="item"><img src="../plummy/assets/img/fullimage4.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage5.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage6.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage7.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage1.jpg" ></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage2.jpg"></div>
+                <div class="item"><img src="../plummy/assets/img/fullimage3.jpg"></div>
+              </div>
+            </div>
+	  <div class="two columns"> </div>
+          </div>
+		
+
+
+	
+	<div class="sixteen columns"> 
+	</br> </br> </br>
+		<h1 style= "text-align:center"> The plummy people </h1>
+		<p style="text-align:center">Here we are,  the team that passionately work together to turn code into fortune</p>
+	</div>
+	
+
+        <div class="container">
+
+		  <div class="one columns"> &nbsp </div>
+		  <div class="fourteen columns">
+              <div id="owl-demo3" class="owl-carousel">
+                <div class="item"><img src="images/maja.png"></div>
+				<div class="item"><img src="images/bayu.png"></div>
+				<div class="item"><img src="images/rizky.png"></div>
+              </div>
+			</div>
+			<div class="one columns"> </div>
+
+          </div>
+
+	
+	<div class="sixteen columns"> 
+	</br> 
+		<h5 style= "text-align:center"> Do you want to become a plummy people? </br>
+ give us a message about you </h5>
+	</div>
+	
+	<div class="sixteen columns"> 
+	</br> </br>  </br> 
+	</div>
+	
+	<div class="sixteen columns"> 
+	<h1 style= "text-align:center"> Get in touch with us! </h1> 
+	</br></br>
+	</div>
+	
+	<div class="eight columns">
+	<div id="map_canvas"></div>
+	</br>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+		function initialize() {
+		  var myLatlng = new google.maps.LatLng(-8.682364,115.227282);
+		  var mapOptions = {
+			zoom: 16,
+			center: myLatlng
+		  }
+		  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+		  var marker = new google.maps.Marker({
+			  position: myLatlng,
+			  map: map,
+			  title: 'Hello World!'
+		  });
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+	<!--<iframe src="http://mapsengine.google.com/map/embed?mid=z-BEFzFo7gdM.kYdiUKVQpQQI" width="640" height="480"></iframe>-->
+	<h5 style= "text-align:center"> Jln Tukad Mawa, Perumahan Mawasaka, no:8, Denpasar </br>
++628123456789 | hi@plummy.web.id </h5>
+	</div>
+	<div class="eight columns">
+	<h5> Drop us a message, we will reply you as fast as we can. Hopefully we can do something awesome together.</h5>
+	</br>
+	<form>
+	<input type="text" value="your name" onblur="if(this.value == '') { this.value='your name'}" onfocus="if (this.value == 'your name') {this.value=''}">
+	<input type="text" value="your email" onblur="if(this.value == '') { this.value='your email'}" onfocus="if (this.value == 'your email') {this.value=''}">
+	<textarea style= "width: 300px; height:100px; resize:none; ">Write something...</textarea>
+	<input type="submit" value="send this plummy message"><br>
+</form> 
+
+	</div>
+	
+	
+
+
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
 </html>
