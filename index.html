@@ -19,73 +19,17 @@
 	<!-- CSS
   ================================================== -->
 	<!-- carousel css -->
-	<link href="assets/css/bootstrapTheme.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <!-- Owl Carousel Assets -->
-    <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="owl-carousel/owl.theme.css" rel="stylesheet">
-    <link href="owl-carousel/owl.transitions.css" rel="stylesheet">
-    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link href="assets/css/custom.css" rel="stylesheet">
+  <!-- Owl Carousel Assets -->
+  <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
+  <link href="owl-carousel/owl.theme.css" rel="stylesheet">
+  <link href="owl-carousel/owl.transitions.css" rel="stylesheet">
+  <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 	<!--skeleton Assets -->
 	<link rel="stylesheet" href="assets/css/base.css">
 	<link rel="stylesheet" href="assets/css/skeleton.css">
 	<link rel="stylesheet" href="assets/css/layout.css">
-	<!-- js script -->
-	<script src="assets/js/bootstrap-collapse.js"></script>
-    <script src="assets/js/bootstrap-transition.js"></script>
-    <script src="assets/js/bootstrap-tab.js"></script>
-    <script src="assets/js/google-code-prettify/prettify.js"></script>
-    <script src="assets/js/application.js"></script>
-	<script src="assets/js/jquery-1.9.1.min.js"></script> 
-    <script src="owl-carousel/owl.carousel.js"></script>
-	
-	<!-- carousel 1 script -->
-	<script>
-    $(document).ready(function() {
-      var owl = $("#owl-demo");
-      owl.owlCarousel({
-		autoPlay : 3000,
-        navigation : false,
-        singleItem : true,
-		transitionStyle : "backSlide"
-      });
-
-      //Select Transtion Type
-      $("#transitionType").change(function(){
-        var newValue = $(this).val();
-        //TransitionTypes is owlCarousel inner method.
-        owl.data("owlCarousel").transitionTypes(newValue);
-        //After change type go to next slide
-        owl.trigger("owl.next");
-      });
-    });
-    </script>
-	
-	<script>
-    $(document).ready(function() {
-      $("#owl-demo2").owlCarousel({
-      //autoPlay: 3000, //Set AutoPlay to 3 seconds
-        items : 3,
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3]
-      });
-    });
-	</script>
-
-	<script>
-    $(document).ready(function() {
-    $("#owl-demo3").owlCarousel({
-     
-    //autoPlay: 3000, //Set AutoPlay to 3 seconds
-     
-    items : 3,
-    itemsDesktop : [1199,3],
-    itemsDesktopSmall : [979,3]
-     
-    });
-     
-    });
-	</script>
 	
 	<style>
     #owl-demo .item img{
@@ -116,23 +60,9 @@
 	border-style:solid;
 		border-width:3px;
 		border-color:#424343;}
-}
+  }
 	</style>
 	
-	<!-- text area-->
-	<script>
-		$('textarea').each(function() {
-			$(this).data('default', this.value);
-		}).focusin(function() {
-			if ( this.value == $(this).data('default') ) {
-				this.value = '';    
-			}
-		}).focusout(function() {
-			if ( this.value == '' ) {
-				this.value = $(this).data('default');    
-			}
-		});
-	</script>
 	
 	<!-- extra -->
 	<style>
@@ -309,7 +239,75 @@
 	</div>
 	</div><!-- container -->
 
+<!-- js script -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="assets/js/google-code-prettify/prettify.js"></script>
+  <script src="assets/js/application.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script> 
+  <script src="owl-carousel/owl.carousel.js"></script>
+  
+  <!-- carousel 1 script -->
+  <script>
+    $(document).ready(function() {
+      var owl = $("#owl-demo");
+      owl.owlCarousel({
+    autoPlay : 3000,
+        navigation : false,
+        singleItem : true,
+    transitionStyle : "backSlide"
+      });
 
+      //Select Transtion Type
+      $("#transitionType").change(function(){
+        var newValue = $(this).val();
+        //TransitionTypes is owlCarousel inner method.
+        owl.data("owlCarousel").transitionTypes(newValue);
+        //After change type go to next slide
+        owl.trigger("owl.next");
+      });
+    });
+    </script>
+  
+  <script>
+    $(document).ready(function() {
+      $("#owl-demo2").owlCarousel({
+      //autoPlay: 3000, //Set AutoPlay to 3 seconds
+        items : 3,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+    $("#owl-demo3").owlCarousel({
+     
+    //autoPlay: 3000, //Set AutoPlay to 3 seconds
+     
+    items : 3,
+    itemsDesktop : [1199,3],
+    itemsDesktopSmall : [979,3]
+     
+    });
+     
+    });
+  </script>
+
+  <!-- text area-->
+  <script>
+    $('textarea').each(function() {
+      $(this).data('default', this.value);
+    }).focusin(function() {
+      if ( this.value == $(this).data('default') ) {
+        this.value = '';    
+      }
+    }).focusout(function() {
+      if ( this.value == '' ) {
+        this.value = $(this).data('default');    
+      }
+    });
+  </script>
 <!-- End Document
 ================================================== -->
 </body>
